@@ -37,10 +37,23 @@ def MenuMaker(list_opciones,text_solicitud):
         os.system ("cls")
     return opcion
     def MenuOpciones():#menu principal
-    opcion=MenuMaker(["Contagios Ultimos 7 dias",
+        opcion=MenuMaker(["Contagios Ultimos 7 dias",
                   "Rango Etario con mas contagio","Sexo mayor contagio",
                   "Sexo y Rango Etario con mayor contagio",
                   "Sexo y Rango Etario en etapa clinica",
                   "salir"],
                   "Seleccione una opcion ")
+        return opcion
+def MenuSexo():# menu para escoger los sexos
+    sexo=MenuMaker(["Hombres","Mujeres"],"Seleccione un sexo ")
+    if(sexo==0):
+        sexo="M"
+    if(sexo==1):
+        sexo="F"
+    return sexo
+    
+
+           
+
+
     
