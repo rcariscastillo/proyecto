@@ -1,1 +1,22 @@
-print("hola como estas")
+import os
+import pandas as pd
+import matplotlib as plt
+import numpy as np
+from matplotlib.ticker import MaxNLocator
+
+
+
+"""
+FUNCION QUE CREA MENUS
+lista:
+list_opciones donde viendene de la forma:
+(0) opcion 
+(n-1) opnion n
+
+Ejemplo:
+['suma', 'resta', 'multiplicacion','resta']
+
+text_solicitud
+
+texto de solicitud
+tex="incerte un numero"
