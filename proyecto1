@@ -20,3 +20,19 @@ text_solicitud
 
 texto de solicitud
 tex="incerte un numero"
+
+def MenuMaker(list_opciones,text_solicitud):
+    os.system ("cls")
+    while(1):
+        counter=0
+        print("************** MENU *****************\n")
+        for item in list_opciones:
+            print("( "+str(counter)+" ) "+item)
+            counter+=1
+               
+        opcion=int(input(text_solicitud))
+        if((opcion>=0)and (opcion<=len(list_opciones)-1)):
+            break
+        print("incerte un valor valido \n")
+        os.system ("cls")
+    return opcion
