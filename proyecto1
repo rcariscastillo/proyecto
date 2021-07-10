@@ -52,7 +52,7 @@ def MenuSexo():# menu para escoger los sexos
         sexo="F"
     return sexo
 #archivos .csv 
-#Generar Data framme 1  o 2 para que  segun sea el caso del .csv a escoger  
+#Generar Data framme 1  o 2 para que segun sea el caso del .csv   
 
 def CrearDataFrame(opcion):
     if(opcion==1):
