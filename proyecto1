@@ -52,7 +52,7 @@ def MenuSexo():# menu para escoger los sexos
         sexo="F"
     return sexo
 #archivos .csv 
-#Generar Data framme 1  o 2 para segun sea el caso del .csv a escoger  
+#Generar Data framme 1  o 2 para que  segun sea el caso del .csv a escoger  
 
 def CrearDataFrame(opcion):
     if(opcion==1):
@@ -63,7 +63,7 @@ def CrearDataFrame(opcion):
         
     return df
 
-#funcion que mostrara el rango etario
+#funcion 
 def MostrarRangoEdad(df):
     print("********* Rango Etario **************\n")
     for item in df.index.values[0:17]:
