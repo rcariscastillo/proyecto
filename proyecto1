@@ -60,7 +60,7 @@ def CrearDataFrame(opcion):
     if(opcion==2):
         df=pd.read_csv("CasosGeneroEtarioEtapaClinica.csv",index_col="Grupo de edad")
         df=df.fillna(0)
-        
+       
     return df
 
 #funcion 
@@ -72,7 +72,32 @@ def MostrarRangoEdad(df):
     opcion=input("Escoja una edad ")
     return opcion
         
+#mejora la experoencia del grafico
+    
+def MakeGrafica(vectorX,vectorY,Titulo,MuchosDatos):
+    if(MuchosDatos==0):
+        fig,ax1 = plt.subplots(1)
+        fig.suptitle(Titulo)
+        ax1.bar(vectorX,vectorY)
+        plt.xticks(rotation=45)
+        plt.xlabel('Tiempo')
+        plt.ylabel('Numero de Casos')
+        plt.show()
+    
+    if(MuchosDatos==1):
+        fig,ax1 = plt.subplots(1)
+        fig.suptitle(Titulo)
+        ax1.bar(vectorX,vectorY)
+        plt.xticks(rotation=45)
+        plt.xlabel('Tiempo')
+        plt.ylabel('Numero de Casos')
+        ax1.xaxis.set_major_locator(MaxNLocator(10))
+        plt.show()
+    
+    
+df1=CrearDataFrame(1)
 
+df2=CrearDataFrame(2)
            
 
 
