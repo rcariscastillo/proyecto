@@ -51,7 +51,27 @@ def MenuSexo():# menu para escoger los sexos
     if(sexo==1):
         sexo="F"
     return sexo
-    
+#archivos .csv 
+#Generar Data framme 1  o 2 para segun sea el caso del .csv a escoger  
+
+def CrearDataFrame(opcion):
+    if(opcion==1):
+        df=pd.read_csv("CasosGeneroEtario.csv",index_col="Grupo de edad")
+    if(opcion==2):
+        df=pd.read_csv("CasosGeneroEtarioEtapaClinica.csv",index_col="Grupo de edad")
+        df=df.fillna(0)
+        
+    return df
+
+#funcion que mostrara el rango etario
+def MostrarRangoEdad(df):
+    print("********* Rango Etario **************\n")
+    for item in df.index.values[0:17]:
+        print(item)
+    print("*************************************\n")
+    opcion=input("Escoja una edad ")
+    return opcion
+        
 
            
 
