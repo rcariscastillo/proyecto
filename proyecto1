@@ -135,6 +135,20 @@ while(opcion!=5):
         Titulo="Grupo edad ["+a.index.values[0]+"]"
         MuchosDatos=1
         MakeGrafica(vectorX,vectorY,Titulo,MuchosDatos)
+        
+   #  esta buscando el maximo de los datos entregados segun el sexo             
+    elif(opcion==2):
+        a=df1.groupby("Sexo").sum()
+        a['casos_acumulados'] = a.iloc[:,1:160].sum(axis=1)
+        maximo=a['casos_acumulados'].max()
+        a=a[a["casos_acumulados"]>=maximo]
+
+        #preparando la info para graficar
+        vectorX=a.columns.values[1:159]
+        vectorY=a.to_numpy()[0][1:159]
+        Titulo="Sexo ["+a.index.values[0]+"]"
+        MuchosDatos=1
+        MakeGrafica(vectorX,vectorY,Titulo,MuchosDatos)
 
 
     
