@@ -98,7 +98,30 @@ def MakeGrafica(vectorX,vectorY,Titulo,MuchosDatos):
 df1=CrearDataFrame(1)
 
 df2=CrearDataFrame(2)
-           
+
+#cuando la condicion interna sea verdadera el usuario podra segir interactuando 
+opcion=0
+while(opcion!=5):
+    os.system ("cls")
+    opcion=MenuOpciones() # seleccionar una opcion del menu
+    
+    if(opcion==0):
+        sexo=MenuSexo()       
+        rango=MostrarRangoEdad(df1)        
+        os.system ("cls")
+        
+        a=df1.loc[rango]
+        a=a[a["Sexo"].str.contains(sexo)]
+        a=a.iloc[:,153:160]
+        
+     #preparando la info para graficar
+        vectorX=a.columns.values
+        vectorY=a.to_numpy()[0]
+        Titulo="Rango de edad ["+rango+"] Sexo: "+sexo
+        MuchosDatos=0
+        
+        MakeGrafica(vectorX,vectorY,Titulo,MuchosDatos)
+
 
 
     
