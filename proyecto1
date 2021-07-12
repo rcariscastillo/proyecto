@@ -5,22 +5,6 @@ import numpy as np
 from matplotlib.ticker import MaxNLocator
 
 
-
-"""
-FUNCION QUE CREA MENUS
-lista:
-list_opciones donde viendene de la forma:
-(0) opcion 
-(n-1) opnion n
-
-Ejemplo:
-['suma', 'resta', 'multiplicacion','resta']
-
-text_solicitud
-
-texto de solicitud
-tex="incerte un numero"
-
 def MenuMaker(list_opciones,text_solicitud):
     os.system ("cls")
     while(1):
@@ -149,6 +133,38 @@ while(opcion!=5):
         Titulo="Sexo ["+a.index.values[0]+"]"
         MuchosDatos=1
         MakeGrafica(vectorX,vectorY,Titulo,MuchosDatos)
+        
+        #   se estan localizando los datos del archivo dependiendo de su grupo,desplegandose los graficos que se comparan entre si(compilados)    
+    elif(opcion==4):
+        a=df2.groupby("Etapa clinica").sum()
+
+        beta1=a.loc[0]
+        vectorX_beta1=beta1.index.values
+        vectorY_beta1=beta1.to_numpy()
+        
+        beta2=a.loc["CONFIRMADA"]
+        vectorX_beta2=beta2.index.values
+        vectorY_beta2=beta2.to_numpy()
+        
+        beta3=a.loc["PROBABLE"]
+        vectorX_beta3=beta3.index.values
+        vectorY_beta3=beta3.to_numpy()
+        
+        fig,ax1 = plt.subplots(1)
+        fig.suptitle("Estado de los casos clinicos")
+        ax1.plot(vectorX_beta1,vectorY_beta1)
+        ax1.plot(vectorX_beta2,vectorY_beta2)
+        ax1.plot(vectorX_beta3,vectorY_beta3)
+        ax1.legend(["Casos negativos","Casos Confirmados","Casos probables"], loc = "upper left") 
+        plt.xticks(rotation=45)
+        plt.xlabel('Tiempo')
+        plt.ylabel('Numero de Casos')
+        ax1.xaxis.set_major_locator(MaxNLocator(10))
+        plt.show()
+
+    else:
+        print("SALIENDO....")
+                     
 
 
     
